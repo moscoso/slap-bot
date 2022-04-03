@@ -1,4 +1,5 @@
 import Fastify, { FastifyInstance } from 'fastify';
+
 import { indexRoutes } from '../routes';
 
 /**
@@ -11,10 +12,9 @@ export class HttpComponent {
 	private fastify: FastifyInstance
 
 	constructor() {
-		this.fastify = Fastify()
+		this.fastify = Fastify();
 		this.registerRoutes();
 	}
-
 
 	private registerRoutes() {
 		this.fastify.register(indexRoutes);

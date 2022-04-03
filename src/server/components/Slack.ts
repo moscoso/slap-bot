@@ -1,4 +1,6 @@
 import { App as BoltApp, LogLevel as BoltLogLevel } from '@slack/bolt';
+import { ActionController } from '../../controller/action';
+import { CommandController } from '../../controller/command';
 
 /**
  * Using the @slack/bolt package, this component listens to Slack events and sends data to Slack using a websocket.
@@ -53,7 +55,7 @@ export class SlackComponent {
              * Get familiar with them and use them over loops more often than not.
              * Learn more: https://northcoders.com/company/blog/the-beginners-guide-to-.foreach-.map-and-.filter-in-javascript
              */
-			const environmentVariable = process.env[secret.name];
+            const environmentVariable = process.env[secret.name];
             const isMissing = isBlank(environmentVariable);
             if (isMissing) {
                 const errorMessage = createErrorMessage(secret.name, secret.slack_url, secret.hint);
@@ -71,21 +73,20 @@ export class SlackComponent {
         });
     }
 
-
+	/** Start listening for various Slack events: messages, commands, and actions */
     public async listen(): Promise < void > {
 
-        this.boltApp.message(":wave:", async ({ message, say, logger }) => {
+        this.boltApp.message("lol", async ({ message, say }) => {
             if (message.subtype) return;
-            logger.debug(message);
-            await say(`Catch these fresh prints <@${message.user}> 👏 🐾`);
+            await say(`lol 😂`);
         });
 
-        this.boltApp.command('/slap', async ({ ack, command, respond, logger }) => {
-            await ack();
-            logger.debug(`received message`);
-            logger.debug(command);
-            await respond(`Catch these fresh prints <@${command.user_name}> 👏 🐾`);
-        });
+		this.boltApp.command('/slap', async ({ack, say }) => CommandController.slap(ack, say));
+        this.boltApp.command('/spin', async ({ ack, respond }) => CommandController.spin(ack, respond));
+
+        this.boltApp.action('show', async ({ ack, respond }) => ActionController.netflix('show', ack, respond) );
+		this.boltApp.action('movie', async ({ ack, respond }) => ActionController.netflix('movie', ack, respond) );
+		this.boltApp.action('both', async ({ ack, respond }) => ActionController.netflix('both', ack, respond) );
 
         await this.boltApp.start();
         console.log(`⚡️ Bolt app is running using port: ${SlackComponent.PORT} ⚡️`);
