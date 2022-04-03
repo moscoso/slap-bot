@@ -15,7 +15,7 @@ export class BotServer {
     }
 
     /**
-     *  The {@link BotServer} follows the Singleton pattern and will ensure that only one instance is created
+     *  The {@link BotServer} follows the Singleton design pattern and will ensure that only one instance is created
      */
     public static getInstance(): BotServer {
         if (!BotServer.instance) BotServer.instance = new BotServer();

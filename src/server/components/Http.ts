@@ -11,7 +11,8 @@ export class HttpComponent {
 	private fastify: FastifyInstance
 
 	constructor() {
-		this.fastify = Fastify({logger: true})
+		this.fastify = Fastify()
+		this.registerRoutes();
 	}
 
 
