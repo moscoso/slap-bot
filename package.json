@@ -2,7 +2,7 @@
     "name": "the-crew-slack-bot",
     "version": "1.0.0",
     "description": "A slack bot for The Crew",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
         "build": "tsc",
         "compile": "tsc",
@@ -11,7 +11,7 @@
         "lint-fix": "eslint ./src/** --fix",
         "spec": "ts-mocha  \"src/**/*.spec.ts\" -w --watch-extensions ts",
         "spec:once": "ts-mocha ./src/**/*.spec.ts",
-        "start": "ts-node ./src/index.ts",
+        "start": "ts-node ./src/app.ts",
         "test": "ts-mocha ./src/**/*.spec.ts"
     },
     "keywords": [
@@ -19,12 +19,14 @@
     ],
     "author": "Chris Moscoso",
     "license": "ISC",
-	"dependencies": {
+    "dependencies": {
         "@slack/bolt": "^3.11.0",
-        "dotenv": "^16.0.0"
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3"
     },
     "devDependencies": {
         "@types/chai": "^4.3.0",
+        "@types/express": "github:types/express",
         "@types/mocha": "^9.1.0",
         "@types/node": "^17.0.23",
         "@typescript-eslint/eslint-plugin": "^5.17.0",
@@ -37,5 +39,5 @@
         "ts-mocha": "^9.0.2",
         "ts-node": "^10.7.0",
         "typescript": "^4.6.3"
-    },
+    }
 }
