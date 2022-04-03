@@ -1,4 +1,5 @@
-import { BotServer } from './BotServer';
+import { BotServer } from './server/BotServer';
 
 const server = BotServer.getInstance();
-server.listen();
+server.start();
+
