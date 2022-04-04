@@ -27,7 +27,7 @@ export class SlackComponent {
     }
 
     /**
-     * Construct the bolt app using the tokens and secrets from the config.json
+     * Construct the bolt app using the tokens and secrets from the environment variables in .env
      * @throws an {@link Error} if any of the tokens or secrets are invalid or missing
      * @returns a {@link BoltApp} that gives us easy access to the Slack API
      */

@@ -1,7 +1,7 @@
 import { AckFn, RespondFn } from '@slack/bolt';
-import { netflixContentBlock } from '../server/block/netflix-content-response';
-import { NetflixContentType } from '../server/model/netflix-content';
-import { NetflixService } from '../server/service/netflix';
+import { netflixContentBlock } from '../block/netflix-content-response';
+import { NetflixContentType } from '../model/netflix-content';
+import { NetflixService } from '../service/netflix';
 
 /**
  * A controller for Slack actions

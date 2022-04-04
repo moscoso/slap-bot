@@ -1,6 +1,6 @@
 import { AckFn, RespondFn, SayFn } from '@slack/bolt';
-import { NETFLIX_CONTENT_SELECT_BLOCK } from '../server/block/netflix-content-select';
-import { SLAP_BLOCK } from '../server/block/slap';
+import { NETFLIX_CONTENT_SELECT_BLOCK } from '../block/netflix-content-select';
+import { SLAP_BLOCK } from '../block/slap';
 
 /**
  * A controller for Slack commands.

@@ -1,6 +1,6 @@
 import Fastify, { FastifyInstance } from 'fastify';
 
-import { indexRoutes } from '../routes';
+import { indexRoutes } from '../../routes';
 
 /**
  * Using the  {@link Fastify} package, this component listens to requests from browsers and other servers using HTTP.
